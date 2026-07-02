@@ -621,7 +621,15 @@ async function generateEntry(en) {
       body: body
     });
   }
-  if (!resp.ok) throw new Error("API エラー (HTTP " + resp.status + ")");
+  if (!resp.ok) {
+    // APIのエラー詳細（invalid x-api-key 等）を取り出して表示する
+    var detail = "";
+    try {
+      var eb = await resp.json();
+      if (eb && eb.error && eb.error.message) detail = " — " + eb.error.message;
+    } catch (pe) { /* 本文なし */ }
+    throw new Error("API エラー (HTTP " + resp.status + ")" + detail);
+  }
   var data = await resp.json();
   var text = (data.content || [])
     .filter(function (b) { return b && b.type === "text"; })
@@ -986,6 +994,20 @@ async function runDiag() {
   // 4. in-memory count
   lines.push("MEMORY: " + state.words.length + " words / streak " + state.settings.streak);
 
+  // 5. API key status (standalone mode only; キー本体は表示しない)
+  if (!HAS_WS) {
+    var key = getApiKey();
+    if (!key) {
+      lines.push("API KEY: 未設定");
+    } else {
+      var head = key.slice(0, 10);
+      var okFmt = key.indexOf("sk-ant-") === 0;
+      lines.push("API KEY: 設定済み (" + head + "…, " + key.length + "文字)" +
+        (okFmt ? "" : " ⚠ sk-ant- で始まっていません"));
+      if (/\s/.test(key)) lines.push("API KEY: ⚠ 空白/改行が混入しています");
+    }
+  }
+
   out.textContent = lines.join("\n");
 }
 
@@ -1136,7 +1158,8 @@ async function init() {
     var keyInput = document.getElementById("apiKeyInput");
     if (getApiKey()) keyInput.placeholder = "（設定済み）変更する場合は入力";
     document.getElementById("btnSaveKey").onclick = function () {
-      var v = keyInput.value.trim();
+      // APIキーに空白は含まれないため、コピペ混入の空白/改行はすべて除去
+      var v = keyInput.value.replace(/\s+/g, "");
       var kMsg = document.getElementById("keyMsg");
       if (!v) { setMsg(kMsg, "キーを入力してください", "err"); return; }
       if (setApiKey(v)) { keyInput.value = ""; keyInput.placeholder = "（設定済み）変更する場合は入力"; setMsg(kMsg, "保存しました", "ok"); }
