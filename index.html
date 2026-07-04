@@ -683,6 +683,25 @@ async function onAdd() {
     setMsg(msg, "「" + en + "」は登録済みです", "err");
     return;
   }
+  // 派生語チェック: 既存カードの派生語欄に載っている語なら、生成前に確認する
+  var famOwner = null;
+  for (var fi = 0; fi < state.words.length; fi++) {
+    var fw = state.words[fi];
+    if ((fw.family || []).some(function (f) { return normEn(f.en) === n; })) {
+      famOwner = fw;
+      break;
+    }
+  }
+  if (famOwner) {
+    var goAhead = window.confirm(
+      "「" + en + "」は「" + famOwner.en + "」の派生語として登録済みです。\n" +
+      "別カードとして追加しますか？\n" +
+      "（キャンセルすると追加せず、「" + famOwner.en + "」のカードで覚えます）");
+    if (!goAhead) {
+      setMsg(msg, "追加を取りやめました（「" + famOwner.en + "」のカードに含まれています）", "info");
+      return;
+    }
+  }
   var btn = document.getElementById("btnAdd");
   btn.disabled = true;
   setMsg(msg, "保存中...", "info");
@@ -716,10 +735,23 @@ async function onAdd() {
       }
     }
     await saveDeck();
+    // 逆方向の気づき: 新しい語の派生語欄に既存カードの語があれば知らせる
+    var relNote = "";
+    (gen.family || []).some(function (f) {
+      var hit = null;
+      for (var ri = 0; ri < state.words.length; ri++) {
+        if (state.words[ri].id !== word.id && normEn(state.words[ri].en) === normEn(f.en)) {
+          hit = state.words[ri];
+          break;
+        }
+      }
+      if (hit) { relNote = "／関連語「" + hit.en + "」も登録済みです"; return true; }
+      return false;
+    });
     if (renamed) {
-      setMsg(msg, "「" + en + "」は「" + word.en + "」として登録しました（" + gen.meaning_ja + "）", "ok");
+      setMsg(msg, "「" + en + "」は「" + word.en + "」として登録しました（" + gen.meaning_ja + "）" + relNote, "ok");
     } else {
-      setMsg(msg, "「" + word.en + "」を追加しました（" + gen.meaning_ja + "）", "ok");
+      setMsg(msg, "「" + word.en + "」を追加しました（" + gen.meaning_ja + "）" + relNote, "ok");
     }
   } catch (e) {
     if (e && e.message === "NO_API_KEY") {
