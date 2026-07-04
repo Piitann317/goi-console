@@ -326,11 +326,8 @@ var GRAMMARS = [
 ];
 
 var SCENES = [
-  { key: "general", label: "業務一般",         desc: "daily work at a medical equipment service company" },
-  { key: "trouble", label: "装置トラブル報告", desc: "reporting an MRI scanner problem at a hospital during a service call" },
-  { key: "meeting", label: "会議",             desc: "a meeting or training session with colleagues" },
-  { key: "airport", label: "空港",             desc: "a flight at the airport during a business trip" },
-  { key: "hotel",   label: "ホテル",           desc: "a hotel stay during a business trip (check-in, requests)" }
+  { key: "work",  label: "業務",     desc: "daily work as an MRI customer service engineer: hospital service calls, troubleshooting, repair reports, and meetings with colleagues" },
+  { key: "daily", label: "日常会話", desc: "everyday conversation and business-trip life: travel, hotels, restaurants, shopping, and small talk" }
 ];
 
 /* ================= state ================= */
@@ -338,7 +335,7 @@ var state = {
   words: [],
   settings: {
     grammar: "pp",
-    scene: "general",
+    scene: "work",
     direction: "en2ja", // or "ja2en"
     streak: 0,
     lastReviewDay: null
@@ -554,13 +551,15 @@ function buildPrompt(en) {
     'Target word/phrase: "' + en + '"',
     "",
     "Return ONLY a single JSON object. No markdown, no code fences, no commentary. Exactly this shape:",
-    '{"meaning_ja":"...","pos":"...","examples":[{"en":"...","ja":"...","grammar":"..."},{"en":"...","ja":"...","grammar":"..."}]}',
+    '{"headword":"...","meaning_ja":"...","pos":"...","examples":[{"en":"...","ja":"...","grammar":"..."},{"en":"...","ja":"...","grammar":"..."}]}',
     "",
     "Rules:",
-    '- "meaning_ja": a concise Japanese meaning of the target word/phrase.',
+    '- "headword": the target in its natural dictionary form. Fix capitalization (lowercase unless a proper noun). If the input is an incomplete idiom/collocation, complete it with its usual preposition or particle (e.g. "In conjunction" -> "in conjunction with"). Do NOT replace it with a synonym or a different expression.',
+    '- All other fields must describe the headword.',
+    '- "meaning_ja": a concise Japanese meaning of the headword.',
     '- "pos": part of speech in Japanese (動詞/名詞/形容詞/副詞/熟語 など).',
     '- "examples": EXACTLY 2 example sentences.',
-    "- Each example sentence must be 14 words or fewer, intermediate level, and must contain the target word/phrase.",
+    "- Each example sentence must be 14 words or fewer, intermediate level, and must contain the headword (inflected forms are fine).",
     '- Each example has "en" (English), "ja" (natural Japanese translation), "grammar" (short Japanese label of the grammar pattern used).',
     "- Example 1 MUST use this grammar pattern: " + g.desc + ".",
     "- Example 2 MUST be a natural sentence for this scene: " + sc.desc + "."
@@ -588,6 +587,7 @@ function parseAiJson(text) {
     });
   }
   return {
+    headword: typeof obj.headword === "string" ? obj.headword.trim() : "",
     meaning_ja: obj.meaning_ja,
     pos: typeof obj.pos === "string" ? obj.pos : "",
     examples: out
@@ -667,8 +667,25 @@ async function onAdd() {
     word.pos = gen.pos;
     word.examples = gen.examples;
     word.pending = false;
+    // 見出し語補正: AIが提案した辞書形（前置詞の補完・大文字小文字の修正）を採用する。
+    // ただし補正後の形が既存の別単語と重複する場合は元の入力のまま残す。
+    var renamed = false;
+    var hw = gen.headword;
+    if (hw && hw !== word.en) {
+      var clash = state.words.some(function (w) {
+        return w.id !== word.id && normEn(w.en) === normEn(hw);
+      });
+      if (!clash) {
+        renamed = normEn(hw) !== normEn(en);
+        word.en = hw;
+      }
+    }
     await saveDeck();
-    setMsg(msg, "「" + en + "」を追加しました（" + gen.meaning_ja + "）", "ok");
+    if (renamed) {
+      setMsg(msg, "「" + en + "」は「" + word.en + "」として登録しました（" + gen.meaning_ja + "）", "ok");
+    } else {
+      setMsg(msg, "「" + word.en + "」を追加しました（" + gen.meaning_ja + "）", "ok");
+    }
   } catch (e) {
     if (e && e.message === "NO_API_KEY") {
       setMsg(msg, "単語は保存しました。例文生成には設定タブでAPIキーを設定するか、手動で編集してください", "err");
@@ -917,6 +934,13 @@ async function onRegen(id, btn) {
     w.pos = gen.pos;
     w.examples = gen.examples;
     w.pending = false;
+    // 再生成時も見出し語補正を適用（既存の別単語と重複する場合は据え置き）
+    if (gen.headword && gen.headword !== w.en) {
+      var clash = state.words.some(function (x) {
+        return x.id !== w.id && normEn(x.en) === normEn(gen.headword);
+      });
+      if (!clash) w.en = gen.headword;
+    }
     await saveDeck();
   } catch (e) {
     var msg = (e && e.message === "NO_API_KEY")
