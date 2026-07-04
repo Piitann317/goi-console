@@ -152,6 +152,9 @@ button:disabled { opacity: 0.45; }
 .ex .en { font-size: 14.5px; color: var(--text); }
 .ex .ja { font-size: 12.5px; color: var(--text-dim); margin-top: 3px; }
 .ex .gr { font-family: var(--mono); font-size: 10px; color: var(--amber); margin-top: 3px; letter-spacing: 0.08em; }
+.fam { font-size: 12px; color: var(--text-dim); margin-top: 8px; line-height: 1.7; }
+.fam .famLabel { font-family: var(--mono); font-size: 9.5px; color: var(--cyan-dim); letter-spacing: 0.14em; margin-right: 6px; }
+.fam .fw { color: var(--text); }
 .rateBtns { display: flex; gap: 8px; }
 .rateBtns button { flex: 1; padding: 12px 4px; }
 .rateBtns .iv { display: block; font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin-top: 2px; }
@@ -412,6 +415,14 @@ function fixWord(w) {
       grammar: (ex && typeof ex.grammar === "string") ? ex.grammar : ""
     };
   });
+  if (!Array.isArray(w.family)) w.family = [];
+  w.family = w.family.slice(0, 4).map(function (f) {
+    return {
+      en: (f && typeof f.en === "string") ? f.en : "",
+      pos: (f && typeof f.pos === "string") ? f.pos : "",
+      ja: (f && typeof f.ja === "string") ? f.ja : ""
+    };
+  }).filter(function (f) { return f.en; });
   var s = w.srs;
   if (!s || typeof s !== "object") s = {};
   w.srs = {
@@ -480,6 +491,17 @@ function findWord(id) {
   return null;
 }
 function grammarByKey(k) { return GRAMMARS.filter(function (g) { return g.key === k; })[0] || GRAMMARS[0]; }
+function familyHtml(w) {
+  if (!w.family || w.family.length === 0) return "";
+  var parts = w.family.map(function (f) {
+    var meta = [];
+    if (f.pos) meta.push(f.pos);
+    if (f.ja) meta.push(f.ja);
+    return '<span class="fw">' + esc(f.en) + "</span>" +
+      (meta.length ? "（" + esc(meta.join(": ")) + "）" : "");
+  });
+  return '<div class="fam"><span class="famLabel">FAMILY</span>' + parts.join(" / ") + "</div>";
+}
 function sceneByKey(k) { return SCENES.filter(function (s) { return s.key === k; })[0] || SCENES[0]; }
 
 /* ================= SRS ================= */
@@ -551,13 +573,14 @@ function buildPrompt(en) {
     'Target word/phrase: "' + en + '"',
     "",
     "Return ONLY a single JSON object. No markdown, no code fences, no commentary. Exactly this shape:",
-    '{"headword":"...","meaning_ja":"...","pos":"...","examples":[{"en":"...","ja":"...","grammar":"..."},{"en":"...","ja":"...","grammar":"..."}]}',
+    '{"headword":"...","meaning_ja":"...","pos":"...","family":[{"en":"...","pos":"...","ja":"..."}],"examples":[{"en":"...","ja":"...","grammar":"..."},{"en":"...","ja":"...","grammar":"..."}]}',
     "",
     "Rules:",
     '- "headword": the target in its natural dictionary form. Fix capitalization (lowercase unless a proper noun). If the input is an incomplete idiom/collocation, complete it with its usual preposition or particle (e.g. "In conjunction" -> "in conjunction with"). Do NOT replace it with a synonym or a different expression.',
     '- All other fields must describe the headword.',
     '- "meaning_ja": a concise Japanese meaning of the headword.',
     '- "pos": part of speech in Japanese (動詞/名詞/形容詞/副詞/熟語 など).',
+    '- "family": common derivative forms of the same word family with a different part of speech (e.g. for "adhere": adhesive, adhesion). 0 to 3 items, each with "en", "pos" (Japanese), "ja" (concise Japanese meaning). Do NOT include the headword itself. Use [] if there are no common ones.',
     '- "examples": EXACTLY 2 example sentences.',
     "- Each example sentence must be 14 words or fewer, intermediate level, and must contain the headword (inflected forms are fine).",
     '- Each example has "en" (English), "ja" (natural Japanese translation), "grammar" (short Japanese label of the grammar pattern used).',
@@ -586,10 +609,21 @@ function parseAiJson(text) {
       grammar: typeof ex.grammar === "string" ? ex.grammar : ""
     });
   }
+  var fam = [];
+  if (Array.isArray(obj.family)) {
+    fam = obj.family.slice(0, 4).map(function (f) {
+      return {
+        en: (f && typeof f.en === "string") ? f.en.trim() : "",
+        pos: (f && typeof f.pos === "string") ? f.pos : "",
+        ja: (f && typeof f.ja === "string") ? f.ja : ""
+      };
+    }).filter(function (f) { return f.en; });
+  }
   return {
     headword: typeof obj.headword === "string" ? obj.headword.trim() : "",
     meaning_ja: obj.meaning_ja,
     pos: typeof obj.pos === "string" ? obj.pos : "",
+    family: fam,
     examples: out
   };
 }
@@ -666,6 +700,7 @@ async function onAdd() {
     word.meaning_ja = gen.meaning_ja;
     word.pos = gen.pos;
     word.examples = gen.examples;
+    word.family = gen.family;
     word.pending = false;
     // 見出し語補正: AIが提案した辞書形（前置詞の補完・大文字小文字の修正）を採用する。
     // ただし補正後の形が既存の別単語と重複する場合は元の入力のまま残す。
@@ -792,6 +827,7 @@ function renderReview() {
     if (w.examples.length === 0 || (!w.examples[0].en && !w.examples[0].ja)) {
       html += '<p class="note">例文なし（リストから「AIで例文」または手動編集）</p>';
     }
+    html += familyHtml(w);
     html += "</div>";
   }
   html += "</div>";
@@ -825,7 +861,10 @@ function renderList() {
   if (q) {
     words = words.filter(function (w) {
       return w.en.toLowerCase().indexOf(q) >= 0 ||
-        (w.meaning_ja || "").toLowerCase().indexOf(q) >= 0;
+        (w.meaning_ja || "").toLowerCase().indexOf(q) >= 0 ||
+        (w.family || []).some(function (f) {
+          return f.en.toLowerCase().indexOf(q) >= 0;
+        });
     });
   }
   if (words.length === 0) {
@@ -852,6 +891,7 @@ function renderList() {
           if (ex.grammar) html += '<div class="gr">[' + esc(ex.grammar) + "]</div>";
           html += "</div>";
         });
+        html += familyHtml(w);
         html += '<div class="wBtns">' +
           '<button class="small" data-act="regen">AIで例文</button>' +
           '<button class="small" data-act="edit">手動で編集</button>' +
@@ -933,6 +973,7 @@ async function onRegen(id, btn) {
     w.meaning_ja = gen.meaning_ja;
     w.pos = gen.pos;
     w.examples = gen.examples;
+    w.family = gen.family;
     w.pending = false;
     // 再生成時も見出し語補正を適用（既存の別単語と重複する場合は据え置き）
     if (gen.headword && gen.headword !== w.en) {
@@ -1083,6 +1124,7 @@ async function doImport() {
         existing.meaning_ja = w.meaning_ja;
         existing.pos = w.pos;
         existing.examples = w.examples;
+        existing.family = w.family;
         existing.pending = false;
         updated++;
       } else {
