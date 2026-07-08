@@ -173,10 +173,12 @@ button:disabled { opacity: 0.45; }
 .dot.new { background: var(--cyan); }
 .dot.due { background: var(--amber); }
 .dot.done { background: var(--green); }
-.wEn { flex: 1; font-size: 15px; word-break: break-word; }
-.wIv { font-family: var(--mono); font-size: 11px; color: var(--text-dim); }
+.wMain { flex: 1; min-width: 0; }
+.wEn { font-size: 15px; word-break: break-word; }
+.wJa { font-size: 12.5px; color: var(--cyan); word-break: break-word; margin-top: 1px; }
+.wJa.unset { color: var(--text-dim); }
+.wIv { font-family: var(--mono); font-size: 11px; color: var(--text-dim); flex: 0 0 auto; }
 .wBody { border-top: 1px solid var(--line); padding: 10px 12px; }
-.wMeaning { font-size: 14px; color: var(--cyan); }
 .wPos { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-left: 6px; }
 .wBtns { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
 .editForm label { display: block; font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin: 8px 0 2px; letter-spacing: 0.1em; }
@@ -906,23 +908,25 @@ function renderList() {
   var html = "";
   words.forEach(function (w) {
     html += '<div class="wItem" data-id="' + esc(w.id) + '">';
+    var jaLine = w.meaning_ja
+      ? '<div class="wJa">' + esc(w.meaning_ja) + (w.pos ? '<span class="wPos">' + esc(w.pos) + "</span>" : "") + "</div>"
+      : '<div class="wJa unset">（意味未設定）</div>';
     html += '<div class="wHead"><span class="dot ' + statusDotClass(w) + '"></span>' +
-      '<span class="wEn">' + esc(w.en) + "</span>" +
+      '<div class="wMain"><div class="wEn">' + esc(w.en) + "</div>" + jaLine + "</div>" +
       '<span class="wIv">' + esc(statusLabel(w)) + "</span></div>";
     if (expandedId === w.id) {
       html += '<div class="wBody">';
       if (editingId === w.id) {
         html += renderEditForm(w);
       } else {
-        html += '<div><span class="wMeaning">' + esc(w.meaning_ja || "（意味未設定）") + "</span>";
-        if (w.pos) html += '<span class="wPos">' + esc(w.pos) + "</span>";
-        html += "</div>";
+        var hasEx = w.examples.some(function (ex) { return ex.en || ex.ja; });
         w.examples.forEach(function (ex) {
           if (!ex.en && !ex.ja) return;
           html += '<div class="ex"><div class="en">' + esc(ex.en) + '</div><div class="ja">' + esc(ex.ja) + "</div>";
           if (ex.grammar) html += '<div class="gr">[' + esc(ex.grammar) + "]</div>";
           html += "</div>";
         });
+        if (!hasEx) html += '<p class="note">例文なし（「AIで例文」または「手動で編集」で追加できます）</p>';
         html += familyHtml(w);
         html += '<div class="wBtns">' +
           '<button class="small" data-act="regen">AIで例文</button>' +
