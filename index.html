@@ -425,6 +425,13 @@ function fixWord(w) {
       ja: (f && typeof f.ja === "string") ? f.ja : ""
     };
   }).filter(function (f) { return f.en; });
+  if (!Array.isArray(w.idioms)) w.idioms = [];
+  w.idioms = w.idioms.slice(0, 4).map(function (f) {
+    return {
+      en: (f && typeof f.en === "string") ? f.en : "",
+      ja: (f && typeof f.ja === "string") ? f.ja : ""
+    };
+  }).filter(function (f) { return f.en; });
   var s = w.srs;
   if (!s || typeof s !== "object") s = {};
   w.srs = {
@@ -504,6 +511,14 @@ function familyHtml(w) {
   });
   return '<div class="fam"><span class="famLabel">FAMILY</span>' + parts.join(" / ") + "</div>";
 }
+function idiomsHtml(w) {
+  if (!w.idioms || w.idioms.length === 0) return "";
+  var parts = w.idioms.map(function (f) {
+    return '<span class="fw">' + esc(f.en) + "</span>" +
+      (f.ja ? "（" + esc(f.ja) + "）" : "");
+  });
+  return '<div class="fam"><span class="famLabel">IDIOMS</span>' + parts.join(" / ") + "</div>";
+}
 function sceneByKey(k) { return SCENES.filter(function (s) { return s.key === k; })[0] || SCENES[0]; }
 
 /* ================= SRS ================= */
@@ -580,7 +595,7 @@ function buildPrompt(en) {
     'Target word/phrase: "' + en + '"',
     "",
     "Return ONLY a single JSON object. No markdown, no code fences, no commentary. Exactly this shape:",
-    '{"headword":"...","meaning_ja":"...","pos":"...","family":[{"en":"...","pos":"...","ja":"..."}],"examples":[{"en":"...","ja":"...","grammar":"..."},{"en":"...","ja":"...","grammar":"..."}]}',
+    '{"headword":"...","meaning_ja":"...","pos":"...","family":[{"en":"...","pos":"...","ja":"..."}],"idioms":[{"en":"...","ja":"..."}],"examples":[{"en":"...","ja":"...","grammar":"..."},{"en":"...","ja":"...","grammar":"..."}]}',
     "",
     "Rules:",
     '- "headword": the target in its natural dictionary form. Fix capitalization (lowercase unless a proper noun). If the input is an incomplete idiom/collocation, complete it with its usual preposition or particle (e.g. "In conjunction" -> "in conjunction with"). Do NOT replace it with a synonym or a different expression.',
@@ -588,6 +603,7 @@ function buildPrompt(en) {
     '- "meaning_ja": a concise Japanese meaning of the headword.',
     '- "pos": part of speech in Japanese (動詞/名詞/形容詞/副詞/熟語 など).',
     '- "family": common derivative forms of the same word family with a different part of speech (e.g. for "adhere": adhesive, adhesion). 0 to 3 items, each with "en", "pos" (Japanese), "ja" (concise Japanese meaning). Do NOT include the headword itself. Use [] if there are no common ones.',
+    '- "idioms": common idioms, phrasal verbs, or set phrases that use the headword and whose meaning is NOT obvious from the literal meaning (e.g. for "stand": "can\'t stand" = 我慢できない, "stand for" = ～を表す). 0 to 3 items, each with "en" and "ja" (concise Japanese meaning). Prefer ones useful in business or daily conversation. Use [] if there are no common ones.',
     '- "examples": EXACTLY 2 example sentences.',
     "- Each example sentence must be 14 words or fewer, intermediate level, and must contain the headword (inflected forms are fine).",
     '- Each example has "en" (English), "ja" (natural Japanese translation), "grammar" (short Japanese label of the grammar pattern used).',
@@ -626,11 +642,21 @@ function parseAiJson(text) {
       };
     }).filter(function (f) { return f.en; });
   }
+  var idi = [];
+  if (Array.isArray(obj.idioms)) {
+    idi = obj.idioms.slice(0, 4).map(function (f) {
+      return {
+        en: (f && typeof f.en === "string") ? f.en.trim() : "",
+        ja: (f && typeof f.ja === "string") ? f.ja : ""
+      };
+    }).filter(function (f) { return f.en; });
+  }
   return {
     headword: typeof obj.headword === "string" ? obj.headword.trim() : "",
     meaning_ja: obj.meaning_ja,
     pos: typeof obj.pos === "string" ? obj.pos : "",
     family: fam,
+    idioms: idi,
     examples: out
   };
 }
@@ -690,18 +716,22 @@ async function onAdd() {
     setMsg(msg, "「" + en + "」は登録済みです", "err");
     return;
   }
-  // 派生語チェック: 既存カードの派生語欄に載っている語なら、生成前に確認する
-  var famOwner = null;
+  // 派生語・熟語チェック: 既存カードに載っている語なら、生成前に確認する
+  var famOwner = null, famKind = "";
   for (var fi = 0; fi < state.words.length; fi++) {
     var fw = state.words[fi];
     if ((fw.family || []).some(function (f) { return normEn(f.en) === n; })) {
-      famOwner = fw;
+      famOwner = fw; famKind = "派生語";
+      break;
+    }
+    if ((fw.idioms || []).some(function (f) { return normEn(f.en) === n; })) {
+      famOwner = fw; famKind = "熟語";
       break;
     }
   }
   if (famOwner) {
     var goAhead = window.confirm(
-      "「" + en + "」は「" + famOwner.en + "」の派生語として登録済みです。\n" +
+      "「" + en + "」は「" + famOwner.en + "」の" + famKind + "として登録済みです。\n" +
       "別カードとして追加しますか？\n" +
       "（キャンセルすると追加せず、「" + famOwner.en + "」のカードで覚えます）");
     if (!goAhead) {
@@ -727,6 +757,7 @@ async function onAdd() {
     word.pos = gen.pos;
     word.examples = gen.examples;
     word.family = gen.family;
+    word.idioms = gen.idioms;
     word.pending = false;
     // 見出し語補正: AIが提案した辞書形（前置詞の補完・大文字小文字の修正）を採用する。
     // ただし補正後の形が既存の別単語と重複する場合は元の入力のまま残す。
@@ -742,9 +773,9 @@ async function onAdd() {
       }
     }
     await saveDeck();
-    // 逆方向の気づき: 新しい語の派生語欄に既存カードの語があれば知らせる
+    // 逆方向の気づき: 新しい語の派生語・熟語欄に既存カードの語があれば知らせる
     var relNote = "";
-    (gen.family || []).some(function (f) {
+    (gen.family || []).concat(gen.idioms || []).some(function (f) {
       var hit = null;
       for (var ri = 0; ri < state.words.length; ri++) {
         if (state.words[ri].id !== word.id && normEn(state.words[ri].en) === normEn(f.en)) {
@@ -867,6 +898,7 @@ function renderReview() {
       html += '<p class="note">例文なし（リストから「AIで例文」または手動編集）</p>';
     }
     html += familyHtml(w);
+    html += idiomsHtml(w);
     html += "</div>";
   }
   html += "</div>";
@@ -901,7 +933,7 @@ function renderList() {
     words = words.filter(function (w) {
       return w.en.toLowerCase().indexOf(q) >= 0 ||
         (w.meaning_ja || "").toLowerCase().indexOf(q) >= 0 ||
-        (w.family || []).some(function (f) {
+        (w.family || []).concat(w.idioms || []).some(function (f) {
           return f.en.toLowerCase().indexOf(q) >= 0;
         });
     });
@@ -933,6 +965,7 @@ function renderList() {
         });
         if (!hasEx) html += '<p class="note">例文なし（「AIで例文」または「手動で編集」で追加できます）</p>';
         html += familyHtml(w);
+        html += idiomsHtml(w);
         html += '<div class="wBtns">' +
           '<button class="small" data-act="regen">AIで例文</button>' +
           '<button class="small" data-act="edit">手動で編集</button>' +
@@ -1015,6 +1048,7 @@ async function onRegen(id, btn) {
     w.pos = gen.pos;
     w.examples = gen.examples;
     w.family = gen.family;
+    w.idioms = gen.idioms;
     w.pending = false;
     // 再生成時も見出し語補正を適用（既存の別単語と重複する場合は据え置き）
     if (gen.headword && gen.headword !== w.en) {
@@ -1166,6 +1200,7 @@ async function doImport() {
         existing.pos = w.pos;
         existing.examples = w.examples;
         existing.family = w.family;
+        existing.idioms = w.idioms;
         existing.pending = false;
         updated++;
       } else {
