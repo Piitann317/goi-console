@@ -317,6 +317,7 @@ var APIKEY_KEY = "vocab:apikey";
 var SELFTEST_KEY = "vocab:selftest";
 
 var GRAMMARS = [
+  { key: "random",  label: "おまかせ",        desc: "" },
   { key: "pp",      label: "現在完了",        desc: "the present perfect tense (have/has + past participle)" },
   { key: "pass",    label: "受動態",          desc: "the passive voice (be + past participle)" },
   { key: "rel",     label: "関係代名詞",      desc: "a relative clause with who / which / that" },
@@ -326,8 +327,7 @@ var GRAMMARS = [
   { key: "inf",     label: "to不定詞",        desc: "a to-infinitive (to + verb) as noun/adjective/purpose" },
   { key: "ger",     label: "動名詞",          desc: "a gerund (verb + ing as a noun, or after a preposition)" },
   { key: "partic",  label: "分詞構文",        desc: "a participial construction (-ing/-ed clause, e.g. \"Having finished the report, ...\")" },
-  { key: "comp",    label: "比較",            desc: "a comparative/superlative (-er/-est, more/most, as ... as)" },
-  { key: "basic",   label: "基本",            desc: "a simple present or past tense sentence" }
+  { key: "comp",    label: "比較",            desc: "a comparative/superlative (-er/-est, more/most, as ... as)" }
 ];
 
 var SCENES = [
@@ -565,6 +565,11 @@ function updateStreak() {
 /* ================= AI generation ================= */
 function buildPrompt(en) {
   var g = grammarByKey(state.settings.grammar);
+  if (g.key === "random") {
+    // おまかせ: 生成のたびに他の文法パターンから1つランダムに選ぶ
+    var pool = GRAMMARS.filter(function (x) { return x.key !== "random"; });
+    g = pool[Math.floor(Math.random() * pool.length)];
+  }
   var sc = sceneByKey(state.settings.scene);
   return [
     "You are creating vocabulary study data for a Japanese learner of English.",
