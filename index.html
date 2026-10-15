@@ -151,6 +151,12 @@ button:disabled { opacity: 0.45; }
 .ex { background: var(--panel2); border-left: 2px solid var(--cyan-dim); padding: 8px 10px; margin: 8px 0; border-radius: 0 3px 3px 0; }
 .ex .en { font-size: 14.5px; color: var(--text); }
 .ex .ja { font-size: 12.5px; color: var(--text-dim); margin-top: 3px; }
+button.spk {
+  background: none; border: none; padding: 2px 6px; margin-left: 4px;
+  font-size: 15px; line-height: 1; vertical-align: middle; color: var(--cyan);
+}
+button.spk:active { background: var(--panel2); }
+#card .front button.spk { font-size: 20px; }
 .ex .gr { font-family: var(--mono); font-size: 10px; color: var(--amber); margin-top: 3px; letter-spacing: 0.08em; }
 .fam { font-size: 12px; color: var(--text-dim); margin-top: 8px; line-height: 1.7; }
 .fam .famLabel { font-family: var(--mono); font-size: 9.5px; color: var(--cyan-dim); letter-spacing: 0.14em; margin-right: 6px; }
@@ -486,6 +492,35 @@ function esc(s) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 }
+/* ---- 読み上げ（Web Speech API） ---- */
+var TTS_OK = typeof window.speechSynthesis !== "undefined" &&
+  typeof window.SpeechSynthesisUtterance !== "undefined";
+
+function spkBtn(text) {
+  if (!TTS_OK || !text) return "";
+  return '<button class="spk" type="button" aria-label="読み上げ" data-say="' + esc(text) + '">🔊</button>';
+}
+
+function pickVoice() {
+  var vs = window.speechSynthesis.getVoices() || [];
+  var us = vs.filter(function (v) { return v.lang === "en-US" || v.lang === "en_US"; });
+  if (us.length) return us[0];
+  var en = vs.filter(function (v) { return /^en/i.test(v.lang); });
+  return en.length ? en[0] : null;
+}
+
+function speak(text) {
+  if (!TTS_OK || !text) return;
+  var synth = window.speechSynthesis;
+  synth.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = "en-US";
+  var v = pickVoice();
+  if (v) u.voice = v;
+  u.rate = 0.9;
+  synth.speak(u);
+}
+
 function genId() {
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
 }
@@ -881,16 +916,16 @@ function renderReview() {
   var en2ja = state.settings.direction === "en2ja";
   var front = en2ja ? w.en : (w.meaning_ja || "（意味未設定）");
   var html = '<div id="card">';
-  html += '<div class="front">' + esc(front) + "</div>";
+  html += '<div class="front">' + esc(front) + (en2ja ? spkBtn(w.en) : "") + "</div>";
   if (en2ja && w.pos) html += '<div class="pos">' + esc(w.pos) + "</div>";
 
   if (session.revealed) {
     html += '<div class="answer">';
-    html += '<div class="meaning">' + esc(en2ja ? (w.meaning_ja || "（意味未設定）") : w.en) + "</div>";
+    html += '<div class="meaning">' + esc(en2ja ? (w.meaning_ja || "（意味未設定）") : w.en) + (en2ja ? "" : spkBtn(w.en)) + "</div>";
     if (!en2ja && w.pos) html += '<div class="pos" style="text-align:center">' + esc(w.pos) + "</div>";
     w.examples.forEach(function (ex) {
       if (!ex.en && !ex.ja) return;
-      html += '<div class="ex"><div class="en">' + esc(ex.en) + '</div><div class="ja">' + esc(ex.ja) + "</div>";
+      html += '<div class="ex"><div class="en">' + esc(ex.en) + spkBtn(ex.en) + '</div><div class="ja">' + esc(ex.ja) + "</div>";
       if (ex.grammar) html += '<div class="gr">[' + esc(ex.grammar) + "]</div>";
       html += "</div>";
     });
@@ -949,7 +984,7 @@ function renderList() {
       ? '<div class="wJa">' + esc(w.meaning_ja) + (w.pos ? '<span class="wPos">' + esc(w.pos) + "</span>" : "") + "</div>"
       : '<div class="wJa unset">（意味未設定）</div>';
     html += '<div class="wHead"><span class="dot ' + statusDotClass(w) + '"></span>' +
-      '<div class="wMain"><div class="wEn">' + esc(w.en) + "</div>" + jaLine + "</div>" +
+      '<div class="wMain"><div class="wEn">' + esc(w.en) + spkBtn(w.en) + "</div>" + jaLine + "</div>" +
       '<span class="wIv">' + esc(statusLabel(w)) + "</span></div>";
     if (expandedId === w.id) {
       html += '<div class="wBody">';
@@ -959,7 +994,7 @@ function renderList() {
         var hasEx = w.examples.some(function (ex) { return ex.en || ex.ja; });
         w.examples.forEach(function (ex) {
           if (!ex.en && !ex.ja) return;
-          html += '<div class="ex"><div class="en">' + esc(ex.en) + '</div><div class="ja">' + esc(ex.ja) + "</div>";
+          html += '<div class="ex"><div class="en">' + esc(ex.en) + spkBtn(ex.en) + '</div><div class="ja">' + esc(ex.ja) + "</div>";
           if (ex.grammar) html += '<div class="gr">[' + esc(ex.grammar) + "]</div>";
           html += "</div>";
         });
@@ -1313,6 +1348,15 @@ async function init() {
       setMsg(document.getElementById("keyMsg"), "削除しました", "ok");
     };
   }
+
+  document.addEventListener("click", function (e) {
+    var b = e.target && e.target.closest ? e.target.closest("button.spk") : null;
+    if (!b) return;
+    e.preventDefault();
+    e.stopPropagation();
+    speak(b.getAttribute("data-say"));
+  }, true);
+  if (TTS_OK && window.speechSynthesis.getVoices) window.speechSynthesis.getVoices(); // 音声リストの事前ロード
 
   document.getElementById("btnAdd").onclick = onAdd;
   document.getElementById("wordInput").addEventListener("keydown", function (e) {

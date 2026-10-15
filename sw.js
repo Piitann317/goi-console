@@ -1,7 +1,7 @@
 "use strict";
 /* 語彙コンソール service worker
  * アプリ更新時は CACHE_VERSION を上げること（古いキャッシュは activate で削除される） */
-var CACHE_VERSION = "vocab-console-v8";
+var CACHE_VERSION = "vocab-console-v9";
 var APP_SHELL = [
   "./",
   "index.html",
