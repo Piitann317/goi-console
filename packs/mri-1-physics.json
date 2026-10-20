@@ -1,0 +1,817 @@
+{
+ "words": [
+  {
+   "en": "precession",
+   "meaning_ja": "歳差運動(陽子の磁気モーメントが B0 を軸に首振り回転すること)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Protons undergo precession around the direction of B0.",
+     "ja": "陽子はB0の方向を軸に歳差運動する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Once you get precession, the rest of MR physics falls into place.",
+     "ja": "歳差運動が分かれば、MR物理の残りは自然と理解できる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "precess",
+     "pos": "動詞",
+     "ja": "歳差運動する"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "Larmor frequency",
+   "meaning_ja": "ラーモア周波数(歳差運動の周波数。1.5Tで約63.9MHz、3Tで約127.7MHz)【発音】ラーモア",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The Larmor frequency is proportional to the field strength.",
+     "ja": "ラーモア周波数は磁場強度に比例する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The system sets the center frequency to the Larmor frequency before each scan.",
+     "ja": "装置はスキャンの前に中心周波数をラーモア周波数に合わせる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "gyromagnetic ratio",
+   "meaning_ja": "磁気回転比(水素では約42.58 MHz/T)【発音】ジャイロマグネティック",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Multiply the gyromagnetic ratio by B0 to get the Larmor frequency.",
+     "ja": "磁気回転比にB0を掛けるとラーモア周波数が得られる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Each nucleus has its own gyromagnetic ratio.",
+     "ja": "原子核ごとに固有の磁気回転比がある。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "net magnetization",
+   "meaning_ja": "正味の磁化(巨視的磁化ベクトル M)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "At equilibrium, the net magnetization points along B0.",
+     "ja": "平衡状態では正味の磁化はB0方向を向いている。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A stronger field gives a larger net magnetization and more signal.",
+     "ja": "磁場が強いほど正味の磁化が大きくなり、信号も増える。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "longitudinal magnetization",
+   "meaning_ja": "縦磁化(Mz。B0方向の磁化成分)【発音】ロンジチューディナル",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "T1 describes how quickly longitudinal magnetization recovers.",
+     "ja": "T1は縦磁化がどれだけ速く回復するかを表す。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A short TR does not allow full recovery of longitudinal magnetization.",
+     "ja": "短いTRでは縦磁化が完全には回復しない。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "transverse magnetization",
+   "meaning_ja": "横磁化(Mxy。B0に垂直な成分で、これが信号になる)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Only transverse magnetization induces a signal in the receive coil.",
+     "ja": "受信コイルに信号を誘起するのは横磁化だけである。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A 90-degree pulse converts longitudinal into transverse magnetization.",
+     "ja": "90度パルスは縦磁化を横磁化に変換する。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "excitation",
+   "meaning_ja": "励起(RFパルスで磁化を倒すこと)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "RF excitation tips the magnetization away from B0.",
+     "ja": "RF励起は磁化をB0方向から倒す。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The excitation pulse must match the Larmor frequency.",
+     "ja": "励起パルスはラーモア周波数に一致していなければならない。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "excite",
+     "pos": "動詞",
+     "ja": "励起する"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "flip angle",
+   "meaning_ja": "フリップ角(励起で磁化を倒す角度)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Gradient echo sequences often use small flip angles.",
+     "ja": "グラジエントエコー系列では小さいフリップ角がよく使われる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Increasing the flip angle also increases SAR.",
+     "ja": "フリップ角を大きくするとSARも増える。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "resonance",
+   "meaning_ja": "共鳴",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Energy is absorbed only at resonance.",
+     "ja": "エネルギーは共鳴条件のときだけ吸収される。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Magnetic resonance imaging relies on nuclear magnetic resonance.",
+     "ja": "MRIは核磁気共鳴を利用している。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "resonate",
+     "pos": "動詞",
+     "ja": "共鳴する"
+    },
+    {
+     "en": "resonant",
+     "pos": "形容詞",
+     "ja": "共鳴の"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "spin-lattice relaxation",
+   "meaning_ja": "スピン-格子緩和(=T1緩和、縦緩和)【発音】ラティス",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Spin-lattice relaxation involves energy transfer to the surroundings.",
+     "ja": "スピン-格子緩和では周囲へのエネルギー移動が起こる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Fat has a short spin-lattice relaxation time, so it appears bright on T1.",
+     "ja": "脂肪はT1緩和時間が短いのでT1強調で高信号になる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "spin-spin relaxation",
+   "meaning_ja": "スピン-スピン緩和(=T2緩和、横緩和)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Spin-spin relaxation is caused by interactions between neighboring spins.",
+     "ja": "スピン-スピン緩和は隣接するスピン間の相互作用で起こる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Water has a long spin-spin relaxation time.",
+     "ja": "水はT2緩和時間が長い。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "T2 star",
+   "meaning_ja": "T2*(磁場不均一の影響を含む実効的な横緩和)【発音】ティーツー・スター",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "T2 star is always shorter than T2.",
+     "ja": "T2*は常にT2より短い。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Poor homogeneity shortens T2 star and causes signal loss.",
+     "ja": "均一性が悪いとT2*が短くなり信号が失われる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "dephasing",
+   "meaning_ja": "位相分散(スピンの位相がばらけて信号が減ること)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Dephasing reduces the transverse magnetization.",
+     "ja": "位相分散によって横磁化は減少する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A 180-degree pulse reverses the dephasing caused by static field inhomogeneity.",
+     "ja": "180度パルスは静磁場不均一による位相分散を元に戻す。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "dephase",
+     "pos": "動詞",
+     "ja": "位相分散する"
+    },
+    {
+     "en": "rephasing",
+     "pos": "名詞",
+     "ja": "再収束"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "free induction decay",
+   "meaning_ja": "自由誘導減衰(励起直後に生じる減衰信号)【発音】エフ・アイ・ディー(FID)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The FID decays with T2 star.",
+     "ja": "FIDはT2*で減衰する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "You can see the FID on the oscilloscope during the RF check.",
+     "ja": "RFチェック中にオシロスコープでFIDを確認できる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "echo",
+   "meaning_ja": "エコー(再収束によって再び現れる信号)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The echo forms at time TE after excitation.",
+     "ja": "エコーは励起からTE後に形成される。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The sequence acquires one echo per TR.",
+     "ja": "その系列はTRごとに1つのエコーを収集する。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "k-space",
+   "meaning_ja": "k空間(画像の空間周波数データを格納する空間)【発音】ケイ・スペース",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The center of k-space determines image contrast.",
+     "ja": "k空間の中心が画像コントラストを決める。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A spike in k-space shows up as stripes across the whole image.",
+     "ja": "k空間のスパイクは画像全体の縞模様として現れる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": [
+    {
+     "en": "fill k-space",
+     "ja": "k空間を埋める(データを収集する)"
+    }
+   ]
+  },
+  {
+   "en": "Fourier transform",
+   "meaning_ja": "フーリエ変換(k空間データを画像に変換する)【発音】フーリエイ",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The image is obtained by a two-dimensional Fourier transform.",
+     "ja": "画像は2次元フーリエ変換で得られる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The reconstruction computer performs the Fourier transform.",
+     "ja": "再構成コンピュータがフーリエ変換を行う。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "field of view",
+   "meaning_ja": "撮像視野(FOV)【発音】エフ・オー・ヴィー",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Reducing the field of view improves spatial resolution.",
+     "ja": "撮像視野を小さくすると空間分解能が上がる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "If the field of view is too small, you'll get aliasing.",
+     "ja": "撮像視野が小さすぎると折り返しが起こる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "matrix",
+   "meaning_ja": "マトリクス(画素数。例 256×256)【発音】メイトリクス",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "A larger matrix gives smaller voxels.",
+     "ja": "マトリクスを大きくするとボクセルが小さくなる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Doubling the phase matrix doubles the scan time.",
+     "ja": "位相方向のマトリクスを2倍にするとスキャン時間も2倍になる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "bandwidth",
+   "meaning_ja": "受信バンド幅(Hz/pixel)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "A higher bandwidth reduces the chemical shift artifact.",
+     "ja": "バンド幅を広げると化学シフトアーチファクトが減る。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Increasing the bandwidth lowers the SNR.",
+     "ja": "バンド幅を広げるとSNRが下がる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "signal-to-noise ratio",
+   "meaning_ja": "信号雑音比(SNR)【発音】エス・エヌ・アール",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "SNR is proportional to voxel volume.",
+     "ja": "SNRはボクセル体積に比例する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The customer complained about low SNR with the head coil.",
+     "ja": "顧客は頭部コイルのSNRが低いと訴えていた。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "contrast-to-noise ratio",
+   "meaning_ja": "コントラスト雑音比(CNR)【発音】シー・エヌ・アール",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "CNR matters more than SNR for detecting lesions.",
+     "ja": "病変の検出にはSNRよりCNRが重要だ。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Contrast agents increase the CNR.",
+     "ja": "造影剤はCNRを高める。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "phase encoding",
+   "meaning_ja": "位相エンコード",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Each phase encoding step fills one line of k-space.",
+     "ja": "位相エンコードの各ステップでk空間の1ラインが埋まる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Motion artifacts propagate in the phase encoding direction.",
+     "ja": "体動アーチファクトは位相エンコード方向に広がる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "frequency encoding",
+   "meaning_ja": "周波数エンコード(=readout、読み出し)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Frequency encoding is applied during signal readout.",
+     "ja": "周波数エンコードは信号の読み出し中にかけられる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Chemical shift appears in the frequency encoding direction.",
+     "ja": "化学シフトは周波数エンコード方向に現れる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "readout",
+     "pos": "名詞",
+     "ja": "読み出し"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "slice selection",
+   "meaning_ja": "スライス選択",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Slice selection combines a gradient with a selective RF pulse.",
+     "ja": "スライス選択は傾斜磁場と選択的RFパルスの組み合わせで行う。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A steeper slice selection gradient gives thinner slices.",
+     "ja": "スライス選択傾斜を急にするとスライスが薄くなる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "chemical shift",
+   "meaning_ja": "化学シフト(水と脂肪の共鳴周波数差。約3.5ppm)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Fat and water differ by about 3.5 ppm due to chemical shift.",
+     "ja": "脂肪と水は化学シフトにより約3.5ppm異なる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "At 3 T, the chemical shift is about 440 Hz.",
+     "ja": "3Tでは化学シフトは約440Hzになる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "susceptibility",
+   "meaning_ja": "磁化率(物質の磁化されやすさ)【発音】サセプティビリティ",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Susceptibility differences distort the local magnetic field.",
+     "ja": "磁化率の違いは局所磁場を歪める。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Metal implants cause strong susceptibility artifacts.",
+     "ja": "金属インプラントは強い磁化率アーチファクトを起こす。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "susceptible",
+     "pos": "形容詞",
+     "ja": "影響を受けやすい"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "homogeneity",
+   "meaning_ja": "(磁場の)均一性【発音】ホモジェニーイティ",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Good homogeneity is essential for fat saturation.",
+     "ja": "脂肪抑制には良好な均一性が不可欠だ。",
+     "grammar": "講義"
+    },
+    {
+     "en": "We measured the field homogeneity after shimming.",
+     "ja": "シミング後に磁場均一性を測定した。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "homogeneous",
+     "pos": "形容詞",
+     "ja": "均一な"
+    },
+    {
+     "en": "inhomogeneity",
+     "pos": "名詞",
+     "ja": "不均一"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "parts per million",
+   "meaning_ja": "百万分率(ppm。磁場均一性や化学シフトの単位)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Homogeneity is specified in parts per million over a sphere.",
+     "ja": "均一性は球体積内のppmで規定される。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The homogeneity was within 1 ppm over a 40 cm sphere.",
+     "ja": "均一性は40cm球内で1ppm以内だった。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "Tesla",
+   "meaning_ja": "テスラ(磁束密度の単位。1 T = 10,000 G)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Clinical systems usually operate at 1.5 or 3 Tesla.",
+     "ja": "臨床装置は通常1.5Tか3Tで動作する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "One Tesla equals ten thousand gauss.",
+     "ja": "1テスラは1万ガウスに等しい。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "gauss",
+     "pos": "名詞",
+     "ja": "ガウス(1 G = 0.1 mT)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "proton density",
+   "meaning_ja": "プロトン密度(PD)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Proton density images minimize T1 and T2 effects.",
+     "ja": "プロトン密度強調像はT1とT2の影響を最小にする。",
+     "grammar": "講義"
+    },
+    {
+     "en": "PD-weighted images are common in musculoskeletal imaging.",
+     "ja": "PD強調像は運動器の撮像でよく使われる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "saturation",
+   "meaning_ja": "飽和(縦磁化がゼロになり信号が出ない状態)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Saturation pulses suppress signal from outside the slice.",
+     "ja": "飽和パルスはスライス外からの信号を抑制する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Place a saturation band to reduce flow artifacts.",
+     "ja": "フローアーチファクトを減らすためにサチュレーションバンドを置く。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "saturate",
+     "pos": "動詞",
+     "ja": "飽和させる"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "inversion",
+   "meaning_ja": "反転(180度パルスで縦磁化を逆向きにすること)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "An inversion pulse flips the longitudinal magnetization by 180 degrees.",
+     "ja": "反転パルスは縦磁化を180度反転させる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Choose the inversion time to null the fat signal.",
+     "ja": "脂肪信号をゼロにするように反転時間を選ぶ。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "invert",
+     "pos": "動詞",
+     "ja": "反転させる"
+    }
+   ],
+   "idioms": [
+    {
+     "en": "null the signal",
+     "ja": "信号をゼロにする"
+    }
+   ]
+  },
+  {
+   "en": "repetition time",
+   "meaning_ja": "繰り返し時間(TR)【発音】ティー・アール",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "A short repetition time increases T1 weighting.",
+     "ja": "TRを短くするとT1強調が強くなる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Scan time is roughly TR times the number of phase steps.",
+     "ja": "スキャン時間はおおよそTR×位相ステップ数である。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "echo time",
+   "meaning_ja": "エコー時間(TE)【発音】ティー・イー",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "A long echo time increases T2 weighting.",
+     "ja": "TEを長くするとT2強調が強くなる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Use the shortest echo time to reduce susceptibility artifacts.",
+     "ja": "磁化率アーチファクトを減らすには最短のTEを使う。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "inversion time",
+   "meaning_ja": "反転時間(TI)【発音】ティー・アイ",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The inversion time depends on the tissue you want to suppress.",
+     "ja": "反転時間は抑制したい組織によって決まる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "For STIR at 1.5 T, the inversion time is around 150 ms.",
+     "ja": "1.5TのSTIRでは反転時間は約150msだ。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "eddy current",
+   "meaning_ja": "渦電流(傾斜磁場の切り替えで導体に誘起される電流)【発音】エディー",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Eddy currents distort the gradient waveform.",
+     "ja": "渦電流は傾斜磁場波形を歪める。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Eddy current compensation is adjusted during installation.",
+     "ja": "渦電流補正は据付時に調整される。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "induction",
+   "meaning_ja": "誘導(ファラデーの電磁誘導)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Signal detection is based on Faraday's law of induction.",
+     "ja": "信号の検出はファラデーの電磁誘導の法則に基づいている。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Changing magnetic fields induce currents in nearby conductors.",
+     "ja": "変化する磁場は近くの導体に電流を誘起する。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "induce",
+     "pos": "動詞",
+     "ja": "誘起する、誘導する"
+    }
+   ],
+   "idioms": []
+  }
+ ]
+}

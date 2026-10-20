@@ -23,6 +23,24 @@
 - **リスト** — 検索、状態表示（NEW / DUE / 次回間隔）、AI 再生成・手動編集・削除
 - **設定** — 診断（保存セルフテスト）、JSON バックアップ / 復元（上書き更新モードでは SRS 進捗を維持）
 
+## 単語パックのリンク取り込み
+
+`packs/` に置いた単語パック（`{"words":[...]}` 形式）は、URL を開くだけで登録できます。確認ダイアログで OK を押すと追加され、登録済みの語はスキップされます。
+
+```
+https://piitann317.github.io/goi-console/?pack=mri-1-physics
+https://piitann317.github.io/goi-console/?pack=mri-1-physics,mri-2-sequence-artifact   # カンマ区切りで複数
+```
+
+| パック | 内容 | 語数 |
+|---|---|---|
+| `mri-1-physics` | MRI 物理の基礎 | 38 |
+| `mri-2-sequence-artifact` | シーケンス・画像・アーチファクト | 33 |
+| `mri-3-hardware` | 磁石・冷却系・傾斜磁場・RF・シールド | 31 |
+| `mri-4-safety-service` | 安全・サービス英語 | 26 |
+
+パックの元データは別リポジトリ（private）の `vocab/build_packs.py` で生成しています。このリポジトリは public なので、社内資料由来の語は置かないこと。
+
 ## AI 例文生成について
 
 例文生成は Anthropic Messages API を使用します。GitHub Pages 上で単体動作させる場合は、設定タブで自分の Anthropic API キーを設定してください（キーは端末の localStorage にのみ保存されます）。
@@ -41,6 +59,7 @@
 | `manifest.json` | PWA マニフェスト |
 | `sw.js` | サービスワーカー（オフラインキャッシュ） |
 | `icon-192.png` / `icon-512.png` | アプリアイコン |
+| `packs/*.json` | リンク取り込み用の単語パック |
 
 アプリを更新したら `sw.js` の `CACHE_VERSION` を上げてください（古いキャッシュが自動削除されます）。
 

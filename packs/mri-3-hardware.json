@@ -1,0 +1,808 @@
+{
+ "words": [
+  {
+   "en": "superconducting magnet",
+   "meaning_ja": "超伝導磁石",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "A superconducting magnet keeps its field without any power supply.",
+     "ja": "超伝導磁石は電源なしで磁場を維持する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The magnet is always on, even when the system is shut down.",
+     "ja": "システムを停止しても磁石は常にオンだ。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "superconductivity",
+     "pos": "名詞",
+     "ja": "超伝導"
+    }
+   ],
+   "idioms": [
+    {
+     "en": "The magnet is always on.",
+     "ja": "磁場は常にかかっている(安全教育の定番)"
+    }
+   ]
+  },
+  {
+   "en": "cryostat",
+   "meaning_ja": "クライオスタット(液体ヘリウムを保持する断熱容器)【発音】クライオスタット",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The coil windings sit inside the cryostat.",
+     "ja": "コイル巻線はクライオスタットの内部にある。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Never open the cryostat without proper training.",
+     "ja": "適切な教育を受けずにクライオスタットを開けてはならない。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "cryogen",
+     "pos": "名詞",
+     "ja": "寒剤(液体ヘリウム等)"
+    },
+    {
+     "en": "cryogenic",
+     "pos": "形容詞",
+     "ja": "極低温の"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "liquid helium",
+   "meaning_ja": "液体ヘリウム(約4.2K)【発音】ヒーリアム",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Liquid helium cools the coil to about 4 kelvin.",
+     "ja": "液体ヘリウムはコイルを約4ケルビンまで冷やす。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Check the helium level during every preventive maintenance.",
+     "ja": "定期点検のたびにヘリウム残量を確認する。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "helium level",
+     "pos": "名詞",
+     "ja": "ヘリウム残量"
+    },
+    {
+     "en": "kelvin",
+     "pos": "名詞",
+     "ja": "ケルビン"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "cold head",
+   "meaning_ja": "コールドヘッド(冷凍機。ヘリウム再凝縮用)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The cold head recondenses evaporated helium.",
+     "ja": "コールドヘッドは蒸発したヘリウムを再凝縮する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A noisy cold head may need replacement.",
+     "ja": "異音のするコールドヘッドは交換が必要かもしれない。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "recondense",
+     "pos": "動詞",
+     "ja": "再凝縮する"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "compressor",
+   "meaning_ja": "(ヘリウム)コンプレッサー(コールドヘッドを駆動)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The helium compressor drives the cold head.",
+     "ja": "ヘリウムコンプレッサーがコールドヘッドを駆動する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "If the compressor stops, helium starts to boil off.",
+     "ja": "コンプレッサーが止まるとヘリウムが蒸発し始める。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "boil-off",
+   "meaning_ja": "ボイルオフ(ヘリウムの蒸発損失)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Zero boil-off magnets lose almost no helium.",
+     "ja": "ゼロボイルオフ磁石はほとんどヘリウムを失わない。",
+     "grammar": "講義"
+    },
+    {
+     "en": "High boil-off usually points to a cooling problem.",
+     "ja": "ボイルオフが多いのは通常、冷却系の問題を示す。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": [
+    {
+     "en": "boil off",
+     "ja": "(動詞句)蒸発して失われる"
+    }
+   ]
+  },
+  {
+   "en": "quench",
+   "meaning_ja": "クエンチ(超伝導が破れ磁場が急速に消失、ヘリウムが一気に気化)",
+   "pos": "名詞/動詞",
+   "examples": [
+    {
+     "en": "During a quench, the stored energy is released as heat.",
+     "ja": "クエンチの間に蓄積エネルギーは熱として放出される。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Only press the quench button in a life-threatening emergency.",
+     "ja": "クエンチボタンは生命に関わる緊急時にのみ押す。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "quench pipe",
+     "pos": "名詞",
+     "ja": "クエンチ管(ヘリウムガスを屋外に逃がす排気管)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "ramp",
+   "meaning_ja": "励磁・消磁する(ramp up = 励磁、ramp down = 消磁)",
+   "pos": "動詞",
+   "examples": [
+    {
+     "en": "The magnet is ramped up to field after installation.",
+     "ja": "据付後に磁石は所定磁場まで励磁される。",
+     "grammar": "講義"
+    },
+    {
+     "en": "We had to ramp down the magnet to remove the object.",
+     "ja": "物体を取り除くために消磁しなければならなかった。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "ramp-up",
+     "pos": "名詞",
+     "ja": "励磁"
+    }
+   ],
+   "idioms": [
+    {
+     "en": "ramp up",
+     "ja": "励磁する"
+    },
+    {
+     "en": "ramp down",
+     "ja": "消磁する"
+    }
+   ]
+  },
+  {
+   "en": "shim coil",
+   "meaning_ja": "シムコイル(磁場均一性補正用コイル)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Shim coils correct field inhomogeneity.",
+     "ja": "シムコイルは磁場の不均一を補正する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Shim currents are set during the tune-up.",
+     "ja": "シム電流は調整時に設定される。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "gradient coil",
+   "meaning_ja": "傾斜磁場コイル(X、Y、Zの3軸)【発音】グレイディエント",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The gradient coil produces a linear field variation.",
+     "ja": "傾斜磁場コイルは線形に変化する磁場を作る。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The gradient coil is water-cooled.",
+     "ja": "傾斜磁場コイルは水冷されている。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "gradient",
+     "pos": "名詞",
+     "ja": "傾斜磁場、勾配"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "gradient amplifier",
+   "meaning_ja": "傾斜磁場アンプ(GPA。Gradient Power Amplifier)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The gradient amplifier drives hundreds of amps into the coil.",
+     "ja": "傾斜磁場アンプはコイルに数百アンペアを流す。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A GPA fault will stop the measurement immediately.",
+     "ja": "GPAの故障は撮像を即座に停止させる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "slew rate",
+   "meaning_ja": "スルーレート(傾斜磁場の立ち上がり速度。T/m/s)【発音】スルー",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "A higher slew rate allows shorter echo spacing.",
+     "ja": "スルーレートが高いほどエコー間隔を短くできる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Slew rate is limited by peripheral nerve stimulation.",
+     "ja": "スルーレートは末梢神経刺激で制限される。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "amplitude",
+     "pos": "名詞",
+     "ja": "振幅(傾斜磁場強度。mT/m)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "duty cycle",
+   "meaning_ja": "デューティサイクル(連続運転できる負荷率)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Diffusion sequences push the gradient duty cycle.",
+     "ja": "拡散系列は傾斜磁場のデューティサイクルを酷使する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The sequence was blocked because it exceeded the duty cycle.",
+     "ja": "デューティサイクルを超えたためシーケンスが止められた。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "RF coil",
+   "meaning_ja": "RFコイル(送信・受信用アンテナ)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "RF coils transmit pulses and receive the MR signal.",
+     "ja": "RFコイルはパルスを送信しMR信号を受信する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A damaged coil cable can cause image artifacts.",
+     "ja": "損傷したコイルケーブルは画像アーチファクトの原因になる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "body coil",
+     "pos": "名詞",
+     "ja": "ボディコイル(装置内蔵の送受信コイル)"
+    },
+    {
+     "en": "local coil",
+     "pos": "名詞",
+     "ja": "局所コイル(表面コイル)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "transmit",
+   "meaning_ja": "送信する(Tx)",
+   "pos": "動詞",
+   "examples": [
+    {
+     "en": "The body coil transmits, and local coils receive.",
+     "ja": "ボディコイルが送信し、局所コイルが受信する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The transmitter reference voltage looks unusually high.",
+     "ja": "送信の基準電圧が異常に高く見える。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "transmitter",
+     "pos": "名詞",
+     "ja": "送信器"
+    },
+    {
+     "en": "receive",
+     "pos": "動詞",
+     "ja": "受信する(Rx)"
+    },
+    {
+     "en": "receiver",
+     "pos": "名詞",
+     "ja": "受信器"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "RF amplifier",
+   "meaning_ja": "RFアンプ(RFPA。RF Power Amplifier)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The RF amplifier delivers kilowatts of peak power.",
+     "ja": "RFアンプはキロワット単位のピーク電力を出力する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "We replaced the RF amplifier after the reflected power error.",
+     "ja": "反射電力エラーの後でRFアンプを交換した。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "reflected power",
+     "pos": "名詞",
+     "ja": "反射電力"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "coil element",
+   "meaning_ja": "コイルエレメント(多チャンネルコイルの個々の受信素子)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Each coil element has its own preamplifier.",
+     "ja": "各コイルエレメントは専用のプリアンプを持つ。",
+     "grammar": "講義"
+    },
+    {
+     "en": "One coil element showed no signal in the coil check.",
+     "ja": "コイルチェックで1つのエレメントが信号なしだった。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "channel",
+     "pos": "名詞",
+     "ja": "チャンネル"
+    },
+    {
+     "en": "preamplifier",
+     "pos": "名詞",
+     "ja": "プリアンプ(前置増幅器)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "Tim",
+   "meaning_ja": "Tim(Total imaging matrix。Siemensのコイル技術)【発音】ティム",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Tim lets you combine multiple coils without repositioning the patient.",
+     "ja": "Timは患者の位置を変えずに複数コイルを組み合わせられる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The Tim plug on the table was damaged.",
+     "ja": "寝台のTimプラグが損傷していた。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "RF shield",
+   "meaning_ja": "RFシールド(撮像室全体を覆うファラデーケージ)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The RF shield keeps external radio signals out.",
+     "ja": "RFシールドは外部の電波を遮断する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A gap in the RF shield caused noise in the images.",
+     "ja": "RFシールドの隙間が画像のノイズの原因だった。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "Faraday cage",
+     "pos": "名詞",
+     "ja": "ファラデーケージ"
+    },
+    {
+     "en": "RF room",
+     "pos": "名詞",
+     "ja": "RF室(シールドルーム)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "penetration panel",
+   "meaning_ja": "貫通パネル(フィルターパネル。シールド壁を通るケーブルの出入口)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "All cables enter the RF room through the penetration panel.",
+     "ja": "すべてのケーブルは貫通パネルを通ってRF室に入る。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A faulty filter on the penetration panel let RF noise in.",
+     "ja": "貫通パネルのフィルター不良でRFノイズが入った。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "filter panel",
+     "pos": "名詞",
+     "ja": "フィルターパネル"
+    },
+    {
+     "en": "waveguide",
+     "pos": "名詞",
+     "ja": "導波管(配管用の貫通口)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "bore",
+   "meaning_ja": "ボア(患者が入るトンネル)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "A 70 cm bore is more comfortable for large patients.",
+     "ja": "70cmボアは大柄な患者にとってより快適だ。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The patient reported warmth inside the bore.",
+     "ja": "患者がボア内で熱感を訴えた。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "isocenter",
+   "meaning_ja": "アイソセンター(磁場中心)【発音】アイソセンター",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Image quality is best at the isocenter.",
+     "ja": "画質はアイソセンターで最良となる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The laser light marks the position that goes to isocenter.",
+     "ja": "レーザーライトはアイソセンターに送られる位置を示す。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "fringe field",
+   "meaning_ja": "漏洩磁場(磁石外部に広がる磁場)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Active shielding reduces the fringe field.",
+     "ja": "アクティブシールドは漏洩磁場を減らす。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Pacemaker patients must stay outside the 5 gauss line.",
+     "ja": "ペースメーカー患者は5ガウスラインの外にいなければならない。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "5 gauss line",
+     "pos": "名詞",
+     "ja": "5ガウスライン(0.5mT。立入制限の目安)"
+    },
+    {
+     "en": "active shielding",
+     "pos": "名詞",
+     "ja": "アクティブシールド"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "patient table",
+   "meaning_ja": "寝台(患者テーブル)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The patient table moves the patient to isocenter.",
+     "ja": "寝台は患者をアイソセンターまで移動させる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The table stopped halfway and showed a motor error.",
+     "ja": "寝台が途中で止まり、モーターエラーが表示された。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "chiller",
+   "meaning_ja": "チラー(冷却水装置)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The chiller removes heat from the gradient coil and electronics.",
+     "ja": "チラーは傾斜磁場コイルと電子機器から熱を取り除く。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Low cooling water flow triggered an interlock.",
+     "ja": "冷却水流量の低下でインターロックが作動した。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "cooling water",
+     "pos": "名詞",
+     "ja": "冷却水"
+    },
+    {
+     "en": "heat exchanger",
+     "pos": "名詞",
+     "ja": "熱交換器"
+    },
+    {
+     "en": "flow rate",
+     "pos": "名詞",
+     "ja": "流量"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "interlock",
+   "meaning_ja": "インターロック(安全のための自動停止機構)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "An interlock stops the system when a safety condition is violated.",
+     "ja": "インターロックは安全条件が破られるとシステムを停止させる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Check which interlock tripped in the event log.",
+     "ja": "どのインターロックが作動したかイベントログで確認しよう。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": [
+    {
+     "en": "trip",
+     "ja": "(インターロック・ブレーカーが)作動する、落ちる"
+    }
+   ]
+  },
+  {
+   "en": "reconstruction",
+   "meaning_ja": "画像再構成(recon)【発音】リコン",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Raw data is sent to the reconstruction computer.",
+     "ja": "生データは再構成コンピュータに送られる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The images were stuck in reconstruction.",
+     "ja": "画像が再構成の途中で止まっていた。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "raw data",
+     "pos": "名詞",
+     "ja": "生データ"
+    },
+    {
+     "en": "reconstruct",
+     "pos": "動詞",
+     "ja": "再構成する"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "host computer",
+   "meaning_ja": "ホストコンピュータ(操作卓側のPC)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The host computer runs the user interface.",
+     "ja": "ホストコンピュータはユーザーインターフェースを動かしている。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Reboot the host computer only after the scan is complete.",
+     "ja": "ホストの再起動はスキャン完了後に限る。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "console",
+     "pos": "名詞",
+     "ja": "操作卓、コンソール"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "tuning",
+   "meaning_ja": "チューニング(コイルの共振周波数合わせ)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Each coil is tuned to the Larmor frequency.",
+     "ja": "各コイルはラーモア周波数に同調されている。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Receive coils are detuned during RF transmission.",
+     "ja": "受信コイルはRF送信中にデチューンされる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "detuning",
+     "pos": "名詞",
+     "ja": "デチューニング(送信中に受信コイルを非共振にする)"
+    },
+    {
+     "en": "tune",
+     "pos": "動詞",
+     "ja": "同調させる"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "grounding",
+   "meaning_ja": "接地(アース)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Poor grounding can introduce noise.",
+     "ja": "接地不良はノイズを持ち込む原因になる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Check the grounding of the RF room.",
+     "ja": "RF室の接地を確認する。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "ground",
+     "pos": "動詞",
+     "ja": "接地する"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "vibration",
+   "meaning_ja": "振動",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Gradient switching causes vibration and acoustic noise.",
+     "ja": "傾斜磁場の切り替えは振動と騒音を生む。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Building vibration can degrade image quality.",
+     "ja": "建物の振動は画質を低下させることがある。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "acoustic noise",
+     "pos": "名詞",
+     "ja": "騒音"
+    }
+   ],
+   "idioms": []
+  }
+ ]
+}

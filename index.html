@@ -1219,6 +1219,25 @@ async function doImport() {
   if (!inWords) { setMsg(msg, "words 配列が見つかりません", "err"); return; }
 
   var wasEmpty = state.words.length === 0;
+  var r = mergeWords(inWords, overwrite);
+
+  // 新端末への復元（元が空）の場合のみ settings も引き継ぐ
+  if (wasEmpty && !Array.isArray(data) && data.settings && typeof data.settings === "object") {
+    var st = data.settings;
+    if (GRAMMARS.some(function (g) { return g.key === st.grammar; })) state.settings.grammar = st.grammar;
+    if (SCENES.some(function (s) { return s.key === st.scene; })) state.settings.scene = st.scene;
+    if (st.direction === "en2ja" || st.direction === "ja2en") state.settings.direction = st.direction;
+    if (typeof st.streak === "number" && isFinite(st.streak)) state.settings.streak = st.streak;
+    if (typeof st.lastReviewDay === "string") state.settings.lastReviewDay = st.lastReviewDay;
+  }
+
+  await saveDeck();
+  setMsg(msg, "追加 " + r.added + " / 更新 " + r.updated + " / スキップ " + r.skipped, "ok");
+  renderAll();
+}
+
+// words 配列を state.words に統合。既存語は overwrite 時のみ内容を更新（SRS進捗は維持）。
+function mergeWords(inWords, overwrite) {
   var added = 0, updated = 0, skipped = 0;
   inWords.forEach(function (rw) {
     var w = fixWord(rw && typeof rw === "object" ? JSON.parse(JSON.stringify(rw)) : null);
@@ -1248,20 +1267,53 @@ async function doImport() {
       added++;
     }
   });
+  return { added: added, updated: updated, skipped: skipped };
+}
 
-  // 新端末への復元（元が空）の場合のみ settings も引き継ぐ
-  if (wasEmpty && !Array.isArray(data) && data.settings && typeof data.settings === "object") {
-    var st = data.settings;
-    if (GRAMMARS.some(function (g) { return g.key === st.grammar; })) state.settings.grammar = st.grammar;
-    if (SCENES.some(function (s) { return s.key === st.scene; })) state.settings.scene = st.scene;
-    if (st.direction === "en2ja" || st.direction === "ja2en") state.settings.direction = st.direction;
-    if (typeof st.streak === "number" && isFinite(st.streak)) state.settings.streak = st.streak;
-    if (typeof st.lastReviewDay === "string") state.settings.lastReviewDay = st.lastReviewDay;
+/* ---- リンクからの単語パック取り込み（?pack=名前[,名前...]） ---- */
+async function importPacksFromUrl() {
+  var params = new URLSearchParams(window.location.search);
+  var raw = params.get("pack");
+  if (!raw) return;
+  // 再読み込みで再実行しないよう、先に URL からパラメータを消す
+  params.delete("pack");
+  var qs = params.toString();
+  try {
+    history.replaceState(null, "", window.location.pathname + (qs ? "?" + qs : "") + window.location.hash);
+  } catch (e) { /* noop */ }
+
+  var names = raw.split(",").map(function (n) { return n.trim(); })
+    .filter(function (n) { return /^[a-z0-9-]+$/.test(n); });
+  if (names.length === 0) return;
+
+  var packs = [];
+  try {
+    for (var i = 0; i < names.length; i++) {
+      var res = await fetch("packs/" + names[i] + ".json", { cache: "no-store" });
+      if (!res.ok) throw new Error(names[i] + " (" + res.status + ")");
+      var data = await res.json();
+      if (!data || !Array.isArray(data.words)) throw new Error(names[i] + " (形式不正)");
+      packs.push({ name: names[i], words: data.words });
+    }
+  } catch (e) {
+    window.alert("単語パックを読み込めませんでした: " + e.message);
+    return;
   }
 
-  await saveDeck();
-  setMsg(msg, "追加 " + added + " / 更新 " + updated + " / スキップ " + skipped, "ok");
+  var total = packs.reduce(function (n, p) { return n + p.words.length; }, 0);
+  var label = packs.map(function (p) { return p.name + "（" + p.words.length + "語）"; }).join("\n");
+  if (!window.confirm("次の単語パックを登録しますか？\n\n" + label + "\n\n計 " + total + " 語（登録済みの語はスキップ）")) return;
+
+  var r = { added: 0, updated: 0, skipped: 0 };
+  packs.forEach(function (p) {
+    var x = mergeWords(p.words, false);
+    r.added += x.added; r.skipped += x.skipped;
+  });
+  var ok = await saveDeck();
   renderAll();
+  window.alert(ok
+    ? "登録しました: 追加 " + r.added + " / スキップ " + r.skipped
+    : "保存に失敗しました。設定タブの診断を確認してください。");
 }
 
 /* ================= rendering ================= */
@@ -1382,6 +1434,7 @@ async function init() {
   updateSaveWarn();
 
   renderAll();
+  await importPacksFromUrl();
 }
 
 init();

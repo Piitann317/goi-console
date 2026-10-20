@@ -1,0 +1,766 @@
+{
+ "words": [
+  {
+   "en": "pulse sequence",
+   "meaning_ja": "パルスシーケンス(RFと傾斜磁場の時間的な組み合わせ)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "A pulse sequence defines the timing of RF pulses and gradients.",
+     "ja": "パルスシーケンスはRFパルスと傾斜磁場のタイミングを定める。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Which pulse sequence was running when the error occurred?",
+     "ja": "エラー発生時にどのシーケンスが走っていた?",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "gradient echo",
+   "meaning_ja": "グラジエントエコー(GRE。傾斜磁場の反転でエコーを作る)【発音】ジー・アール・イー/グレ",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Gradient echo sequences are sensitive to T2 star effects.",
+     "ja": "グラジエントエコー系列はT2*効果に敏感である。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Gradient echo is fast but sensitive to field inhomogeneity.",
+     "ja": "グラジエントエコーは速いが磁場不均一に弱い。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "spin echo",
+   "meaning_ja": "スピンエコー(SE。180度パルスでエコーを作る)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Spin echo compensates for static field inhomogeneity.",
+     "ja": "スピンエコーは静磁場不均一を補償する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Spin echo images are less affected by metal.",
+     "ja": "スピンエコー画像は金属の影響を受けにくい。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "turbo spin echo",
+   "meaning_ja": "ターボスピンエコー(TSE。Siemensの呼称。他社ではFSE)【発音】ティー・エス・イー",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Turbo spin echo acquires multiple echoes per TR.",
+     "ja": "TSEは1TRあたり複数のエコーを収集する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Most routine T2 protocols use TSE.",
+     "ja": "ルーチンのT2プロトコルのほとんどはTSEを使う。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "turbo factor",
+     "pos": "名詞",
+     "ja": "ターボファクター(=echo train length)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "echo train length",
+   "meaning_ja": "エコートレイン長(ETL。1TRで収集するエコー数)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "A longer echo train length shortens the scan.",
+     "ja": "ETLを長くするとスキャンが短くなる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Long echo trains cause blurring.",
+     "ja": "長いエコートレインはボケの原因になる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "inversion recovery",
+   "meaning_ja": "反転回復法(IR)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Inversion recovery can suppress fat or fluid.",
+     "ja": "反転回復法で脂肪や水を抑制できる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "FLAIR and STIR are both inversion recovery techniques.",
+     "ja": "FLAIRもSTIRも反転回復法である。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "FLAIR",
+   "meaning_ja": "FLAIR(水抑制反転回復法)【発音】フレア",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "FLAIR suppresses the signal from cerebrospinal fluid.",
+     "ja": "FLAIRは脳脊髄液の信号を抑制する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "FLAIR is part of almost every brain protocol.",
+     "ja": "FLAIRはほぼすべての頭部プロトコルに入っている。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "STIR",
+   "meaning_ja": "STIR(短TI反転回復法による脂肪抑制)【発音】スター",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "STIR is robust against field inhomogeneity.",
+     "ja": "STIRは磁場不均一に強い。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Use STIR when fat sat fails near metal.",
+     "ja": "金属の近くで脂肪抑制がうまくいかないときはSTIRを使う。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "diffusion-weighted imaging",
+   "meaning_ja": "拡散強調画像(DWI)【発音】ディー・ダブリュー・アイ",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Diffusion-weighted imaging detects acute stroke.",
+     "ja": "拡散強調画像は急性期脳梗塞を検出する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "DWI uses strong gradients, so it is loud and demanding on the hardware.",
+     "ja": "DWIは強い傾斜磁場を使うので音が大きく、ハードウェアへの負荷も高い。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "b-value",
+     "pos": "名詞",
+     "ja": "b値(拡散強調の強さ)【発音】ビー・バリュー"
+    },
+    {
+     "en": "ADC map",
+     "pos": "名詞",
+     "ja": "ADCマップ(見かけの拡散係数)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "echo planar imaging",
+   "meaning_ja": "エコープラナー法(EPI。1回の励起で全k空間を収集)【発音】イー・ピー・アイ",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Echo planar imaging is very fast but prone to distortion.",
+     "ja": "EPIは非常に速いが歪みが出やすい。",
+     "grammar": "講義"
+    },
+    {
+     "en": "EPI ghosting can indicate a gradient timing problem.",
+     "ja": "EPIのゴーストは傾斜磁場のタイミング不良を示唆することがある。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "fat saturation",
+   "meaning_ja": "脂肪抑制(周波数選択的に脂肪信号を飽和させる)【発音】ファット・サット(fat sat)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Fat saturation depends on good field homogeneity.",
+     "ja": "脂肪抑制は良好な磁場均一性に依存する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Inhomogeneous fat sat is often a shim issue.",
+     "ja": "脂肪抑制のムラはシムの問題であることが多い。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "parallel imaging",
+   "meaning_ja": "パラレルイメージング(複数コイルの感度差で撮像を高速化)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Parallel imaging uses coil sensitivity to skip phase encoding steps.",
+     "ja": "パラレルイメージングはコイル感度を利用して位相エンコードを間引く。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A higher acceleration factor lowers SNR.",
+     "ja": "加速係数を上げるとSNRが下がる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "acceleration factor",
+     "pos": "名詞",
+     "ja": "加速係数"
+    },
+    {
+     "en": "GRAPPA",
+     "pos": "名詞",
+     "ja": "GRAPPA(Siemensのパラレル手法)【発音】グラッパ"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "averages",
+   "meaning_ja": "加算回数(Siemensの呼称。他社ではNEX、NSA)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Doubling the averages increases SNR by the square root of two.",
+     "ja": "加算回数を2倍にするとSNRは√2倍になる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Increasing averages also reduces motion artifacts.",
+     "ja": "加算回数を増やすと体動アーチファクトも減る。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "acquisition time",
+   "meaning_ja": "撮像時間(SiemensではTA)【発音】ティー・エー",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The acquisition time is shown under the protocol name.",
+     "ja": "撮像時間はプロトコル名の下に表示される。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The patient couldn't hold still for the whole acquisition time.",
+     "ja": "患者は撮像時間中ずっと静止していられなかった。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "localizer",
+   "meaning_ja": "位置決め画像(=scout)【発音】ローカライザー",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The localizer is used to plan the following slices.",
+     "ja": "位置決め画像は後続スライスの計画に使われる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Run a localizer first to check the coil position.",
+     "ja": "まず位置決めを撮ってコイル位置を確認しよう。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "scout",
+     "pos": "名詞",
+     "ja": "スカウト(位置決め画像)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "shimming",
+   "meaning_ja": "シミング(磁場均一性の調整)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Active shimming uses shim coils to correct inhomogeneity.",
+     "ja": "アクティブシミングはシムコイルで不均一を補正する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Passive shimming is done with small iron pieces during installation.",
+     "ja": "パッシブシミングは据付時に小さな鉄片で行う。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "shim",
+     "pos": "名詞/動詞",
+     "ja": "シム/シミングする"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "adjustments",
+   "meaning_ja": "アジャストメント(Siemens。撮像前の自動調整:周波数、送信、シム)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Adjustments run automatically before each measurement.",
+     "ja": "アジャストメントは各撮像の前に自動で実行される。",
+     "grammar": "講義"
+    },
+    {
+     "en": "If the adjustments fail, check the coil connection first.",
+     "ja": "アジャストメントが失敗したら、まずコイルの接続を確認する。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "center frequency",
+     "pos": "名詞",
+     "ja": "中心周波数"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "aliasing",
+   "meaning_ja": "折り返しアーチファクト(=wrap-around)【発音】エイリアシング",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Aliasing occurs when anatomy extends outside the FOV.",
+     "ja": "折り返しは解剖構造がFOVの外にはみ出すと起こる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Phase oversampling eliminates aliasing.",
+     "ja": "位相オーバーサンプリングで折り返しを除去できる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "wrap-around",
+     "pos": "名詞",
+     "ja": "折り返し"
+    },
+    {
+     "en": "oversampling",
+     "pos": "名詞",
+     "ja": "オーバーサンプリング"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "motion artifact",
+   "meaning_ja": "体動アーチファクト",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Motion artifacts appear as ghosts in the phase direction.",
+     "ja": "体動アーチファクトは位相方向のゴーストとして現れる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Before suspecting the hardware, rule out motion artifacts.",
+     "ja": "ハードを疑う前に体動アーチファクトを除外しよう。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": [
+    {
+     "en": "rule out",
+     "ja": "除外する、可能性を排除する"
+    }
+   ]
+  },
+  {
+   "en": "ghosting",
+   "meaning_ja": "ゴースト(像が位相方向に繰り返し現れる)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Periodic motion causes ghosting.",
+     "ja": "周期的な動きはゴーストを起こす。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Ghosting in a phantom suggests a hardware problem.",
+     "ja": "ファントムでゴーストが出るならハードの問題が疑われる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "ghost",
+     "pos": "名詞",
+     "ja": "ゴースト"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "chemical shift artifact",
+   "meaning_ja": "化学シフトアーチファクト(脂肪と水の境界のずれ)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Chemical shift artifact appears as dark and bright bands at fat-water interfaces.",
+     "ja": "化学シフトアーチファクトは脂肪と水の境界に暗帯と明帯として現れる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Increase the bandwidth to reduce the chemical shift artifact.",
+     "ja": "化学シフトアーチファクトを減らすにはバンド幅を広げる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "susceptibility artifact",
+   "meaning_ja": "磁化率アーチファクト(金属や空気との境界での信号欠損・歪み)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Susceptibility artifacts are worse at higher field strength.",
+     "ja": "磁化率アーチファクトは高磁場ほどひどくなる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A hairpin left in the bore caused a susceptibility artifact.",
+     "ja": "ボア内に残ったヘアピンが磁化率アーチファクトの原因だった。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "spike",
+   "meaning_ja": "スパイクノイズ(k空間の異常点。画像全体の縞=herringbone)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "A single spike in k-space creates a striped pattern.",
+     "ja": "k空間の1点のスパイクで縞模様が生じる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Spikes are often caused by arcing or loose connections.",
+     "ja": "スパイクは放電や接続の緩みで起こることが多い。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "herringbone artifact",
+     "pos": "名詞",
+     "ja": "ヘリンボーンアーチファクト(杉綾模様)"
+    },
+    {
+     "en": "arcing",
+     "pos": "名詞",
+     "ja": "アーク放電"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "zipper artifact",
+   "meaning_ja": "ジッパーアーチファクト(RF雑音による線状ノイズ)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "A zipper artifact is a line of noise in the phase direction.",
+     "ja": "ジッパーアーチファクトは位相方向に並ぶ線状ノイズだ。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A zipper artifact often means RF leaks through the shielding.",
+     "ja": "ジッパーアーチファクトはシールドからのRF漏れを意味することが多い。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "RF interference",
+   "meaning_ja": "RF干渉(外来電波の混入)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "RF interference produces lines at a fixed frequency.",
+     "ja": "RF干渉は特定の周波数に線を生じる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Check if the door was closed and the RF seal is intact.",
+     "ja": "扉が閉まっていたか、RFシールが損傷していないか確認する。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "RF leak",
+     "pos": "名詞",
+     "ja": "RF漏れ"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "truncation artifact",
+   "meaning_ja": "打ち切りアーチファクト(=Gibbs ringing。境界の縞)【発音】トランケーション",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Truncation artifacts appear near sharp edges.",
+     "ja": "打ち切りアーチファクトは鋭い境界付近に現れる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Increasing the matrix reduces Gibbs ringing.",
+     "ja": "マトリクスを大きくするとギブスリンギングが減る。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "Gibbs ringing",
+     "pos": "名詞",
+     "ja": "ギブスリンギング"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "partial volume",
+   "meaning_ja": "部分容積効果",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Thick slices increase partial volume effects.",
+     "ja": "厚いスライスは部分容積効果を強める。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Small lesions can be missed due to partial volume.",
+     "ja": "小さな病変は部分容積効果で見逃されることがある。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "isotropic",
+   "meaning_ja": "等方性の(全方向に同じボクセルサイズ)【発音】アイソトロピック",
+   "pos": "形容詞",
+   "examples": [
+    {
+     "en": "Isotropic voxels allow reformatting in any plane.",
+     "ja": "等方性ボクセルなら任意の断面で再構成できる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "We acquire a 3D isotropic dataset for the knee.",
+     "ja": "膝では3Dの等方性データを収集する。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "anisotropic",
+     "pos": "形容詞",
+     "ja": "異方性の"
+    },
+    {
+     "en": "voxel",
+     "pos": "名詞",
+     "ja": "ボクセル(体積要素)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "contrast agent",
+   "meaning_ja": "造影剤(MRIでは主にガドリニウム製剤)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Gadolinium-based contrast agents shorten T1.",
+     "ja": "ガドリニウム造影剤はT1を短縮する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The injector is synchronized with the scan.",
+     "ja": "インジェクターはスキャンと同期している。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "gadolinium",
+     "pos": "名詞",
+     "ja": "ガドリニウム【発音】ギャドリニウム"
+    },
+    {
+     "en": "injector",
+     "pos": "名詞",
+     "ja": "インジェクター(自動注入器)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "time of flight",
+   "meaning_ja": "TOF法(流入効果による非造影MRA)【発音】ティー・オー・エフ",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Time-of-flight angiography relies on inflow of fresh blood.",
+     "ja": "TOF血管撮影は新鮮な血液の流入を利用する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "TOF of the head is part of the stroke protocol.",
+     "ja": "頭部TOFは脳卒中プロトコルの一部だ。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "angiography",
+     "pos": "名詞",
+     "ja": "血管撮影(MRA)【発音】アンジオグラフィー"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "triggering",
+   "meaning_ja": "同期撮像(心電図や呼吸に合わせて収集)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "ECG triggering freezes cardiac motion.",
+     "ja": "心電図同期で心臓の動きを止める。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Poor ECG signal makes triggering unreliable.",
+     "ja": "心電図信号が悪いと同期が不安定になる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "gating",
+     "pos": "名詞",
+     "ja": "ゲーティング"
+    },
+    {
+     "en": "respiratory",
+     "pos": "形容詞",
+     "ja": "呼吸の【発音】レスピラトリー"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "spatial resolution",
+   "meaning_ja": "空間分解能",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Spatial resolution is determined by voxel size.",
+     "ja": "空間分解能はボクセルサイズで決まる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Higher spatial resolution comes at the cost of SNR.",
+     "ja": "空間分解能を上げるとSNRが犠牲になる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": [
+    {
+     "en": "at the cost of",
+     "ja": "～を犠牲にして"
+    }
+   ]
+  },
+  {
+   "en": "trade-off",
+   "meaning_ja": "トレードオフ(SNR・分解能・時間の関係で頻出)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "There is always a trade-off between SNR, resolution, and time.",
+     "ja": "SNR、分解能、時間の間には常にトレードオフがある。",
+     "grammar": "講義"
+    },
+    {
+     "en": "It's a trade-off you have to explain to the customer.",
+     "ja": "それは顧客に説明しなければならないトレードオフだ。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  }
+ ]
+}

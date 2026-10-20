@@ -1,0 +1,634 @@
+{
+ "words": [
+  {
+   "en": "specific absorption rate",
+   "meaning_ja": "比吸収率(SAR。体に吸収されるRF電力 W/kg)【発音】サー(単語として読む)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "SAR increases with the square of the field strength.",
+     "ja": "SARは磁場強度の2乗に比例して増える。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The protocol was blocked because it exceeded the SAR limit.",
+     "ja": "SAR上限を超えたためプロトコルが止められた。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "peripheral nerve stimulation",
+   "meaning_ja": "末梢神経刺激(PNS。急速な傾斜磁場変化による)【発音】ペリフェラル",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Rapid gradient switching can cause peripheral nerve stimulation.",
+     "ja": "傾斜磁場の急速な切り替えは末梢神経刺激を起こしうる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The patient felt twitching during the EPI scan.",
+     "ja": "患者はEPI撮像中にピクピクする感覚を覚えた。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "dB/dt",
+     "pos": "名詞",
+     "ja": "磁場の時間変化率【発音】ディービー・ディーティー"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "projectile",
+   "meaning_ja": "飛来物(磁性体が磁石に引き寄せられ飛ぶこと)【発音】プロジェクタイル",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Ferromagnetic objects can become dangerous projectiles.",
+     "ja": "強磁性体の物体は危険な飛来物になりうる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "An oxygen cylinder is a typical projectile hazard.",
+     "ja": "酸素ボンベは典型的な吸着事故の原因だ。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "missile effect",
+     "pos": "名詞",
+     "ja": "ミサイル効果(=projectile effect)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "ferromagnetic",
+   "meaning_ja": "強磁性の【発音】フェロマグネティック",
+   "pos": "形容詞",
+   "examples": [
+    {
+     "en": "Never bring ferromagnetic tools into the magnet room.",
+     "ja": "強磁性の工具を撮像室に持ち込んではならない。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Use only non-magnetic tools near the magnet.",
+     "ja": "磁石の近くでは非磁性の工具だけを使う。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "non-magnetic",
+     "pos": "形容詞",
+     "ja": "非磁性の"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "MR Conditional",
+   "meaning_ja": "MR Conditional(条件付きMR対応。条件を満たせば撮像可)",
+   "pos": "形容詞",
+   "examples": [
+    {
+     "en": "An MR Conditional implant is safe only under specific conditions.",
+     "ja": "MR Conditionalのインプラントは特定条件下でのみ安全だ。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Always check the conditions on the implant card.",
+     "ja": "必ずインプラントカードの条件を確認すること。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "MR Safe",
+     "pos": "形容詞",
+     "ja": "MR Safe(どんなMR環境でも安全)"
+    },
+    {
+     "en": "MR Unsafe",
+     "pos": "形容詞",
+     "ja": "MR Unsafe(MR環境に持ち込み禁止)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "implant",
+   "meaning_ja": "インプラント(体内埋込物)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Patients with implants must be screened before entering.",
+     "ja": "インプラントのある患者は入室前にスクリーニングしなければならない。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The implant heated up due to RF exposure.",
+     "ja": "インプラントがRF照射で発熱した。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "screening",
+     "pos": "名詞",
+     "ja": "スクリーニング(入室前の確認)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "hearing protection",
+   "meaning_ja": "聴覚保護具(耳栓・ヘッドホン)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Hearing protection is mandatory during scanning.",
+     "ja": "撮像中の聴覚保護は必須だ。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Wear earplugs when you run the gradient tests.",
+     "ja": "傾斜磁場テストを実行するときは耳栓をすること。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "earplug",
+     "pos": "名詞",
+     "ja": "耳栓"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "zone",
+   "meaning_ja": "ゾーン(MRI安全区域。Zone IV = 撮像室)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Zone IV is the magnet room itself.",
+     "ja": "ゾーンIVは撮像室そのものである。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Only screened personnel may enter Zone IV.",
+     "ja": "スクリーニング済みの人員だけがゾーンIVに入れる。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "lockout/tagout",
+   "meaning_ja": "ロックアウト・タグアウト(LOTO。作業中の電源遮断・表示)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Apply lockout/tagout before opening the cabinet.",
+     "ja": "キャビネットを開ける前にロックアウト・タグアウトを実施すること。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Lockout/tagout prevents someone from switching the power back on.",
+     "ja": "LOTOは誰かが電源を再投入するのを防ぐ。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "electrostatic discharge",
+   "meaning_ja": "静電気放電(ESD)【発音】イー・エス・ディー",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Wear a wrist strap to prevent electrostatic discharge.",
+     "ja": "静電気放電を防ぐためリストストラップを着用する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Handle the boards in an ESD-safe bag.",
+     "ja": "基板は静電防止袋に入れて扱う。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "wrist strap",
+     "pos": "名詞",
+     "ja": "リストストラップ"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "troubleshoot",
+   "meaning_ja": "トラブルシュートする、故障の切り分けをする",
+   "pos": "動詞",
+   "examples": [
+    {
+     "en": "Let's troubleshoot this step by step.",
+     "ja": "一つずつ切り分けていこう。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The first rule of troubleshooting is to reproduce the problem.",
+     "ja": "切り分けの第一原則は現象を再現することだ。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "troubleshooting",
+     "pos": "名詞",
+     "ja": "トラブルシューティング"
+    }
+   ],
+   "idioms": [
+    {
+     "en": "step by step",
+     "ja": "一歩ずつ"
+    }
+   ]
+  },
+  {
+   "en": "reproduce",
+   "meaning_ja": "(現象を)再現する",
+   "pos": "動詞",
+   "examples": [
+    {
+     "en": "Can you reproduce the error with a phantom?",
+     "ja": "ファントムでそのエラーを再現できる?",
+     "grammar": "講義"
+    },
+    {
+     "en": "The problem is intermittent and hard to reproduce.",
+     "ja": "その問題は間欠的で再現が難しい。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "reproducible",
+     "pos": "形容詞",
+     "ja": "再現性のある"
+    },
+    {
+     "en": "intermittent",
+     "pos": "形容詞",
+     "ja": "間欠的な"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "root cause",
+   "meaning_ja": "根本原因",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Replacing the part fixed the symptom, not the root cause.",
+     "ja": "部品交換で症状は直ったが、根本原因は直っていない。",
+     "grammar": "講義"
+    },
+    {
+     "en": "We need to find the root cause before closing the call.",
+     "ja": "コールをクローズする前に根本原因を突き止める必要がある。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "workaround",
+   "meaning_ja": "暫定対処、回避策",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Disabling the coil is only a temporary workaround.",
+     "ja": "コイルを無効にするのは一時的な回避策にすぎない。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Is there a workaround until the spare part arrives?",
+     "ja": "部品が届くまでの回避策はある?",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": [
+    {
+     "en": "work around",
+     "ja": "(問題を)回避する"
+    }
+   ]
+  },
+  {
+   "en": "field replaceable unit",
+   "meaning_ja": "現場交換部品(FRU)【発音】エフ・アール・ユー",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The board is a field replaceable unit.",
+     "ja": "その基板は現場交換部品だ。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Order the spare part with the correct part number.",
+     "ja": "正しい部品番号で交換部品を注文する。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "spare part",
+     "pos": "名詞",
+     "ja": "交換部品"
+    },
+    {
+     "en": "part number",
+     "pos": "名詞",
+     "ja": "部品番号"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "log file",
+   "meaning_ja": "ログファイル",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The event log shows the error code and timestamp.",
+     "ja": "イベントログにはエラーコードとタイムスタンプが表示される。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Save the log files before rebooting.",
+     "ja": "再起動前にログファイルを保存する。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "event log",
+     "pos": "名詞",
+     "ja": "イベントログ"
+    },
+    {
+     "en": "timestamp",
+     "pos": "名詞",
+     "ja": "タイムスタンプ"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "preventive maintenance",
+   "meaning_ja": "定期保守・予防保守(PM)【発音】ピー・エム",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Preventive maintenance is scheduled twice a year.",
+     "ja": "定期点検は年2回予定されている。",
+     "grammar": "講義"
+    },
+    {
+     "en": "We checked the cold head during PM.",
+     "ja": "PMの際にコールドヘッドを点検した。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "calibration",
+   "meaning_ja": "校正、キャリブレーション",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The gradients need calibration after replacement.",
+     "ja": "交換後は傾斜磁場の校正が必要だ。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Run the calibration with the phantom in place.",
+     "ja": "ファントムをセットした状態で校正を実行する。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "calibrate",
+     "pos": "動詞",
+     "ja": "校正する"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "phantom",
+   "meaning_ja": "ファントム(画質試験用の模擬体)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Image quality tests are done with a phantom.",
+     "ja": "画質試験はファントムで行う。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Make sure the phantom is centered in the coil.",
+     "ja": "ファントムがコイルの中央にあることを確認する。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "image quality",
+   "meaning_ja": "画質(IQ)【発音】アイ・キュー",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "The customer reported poor image quality.",
+     "ja": "顧客から画質不良の報告があった。",
+     "grammar": "講義"
+    },
+    {
+     "en": "We performed an image quality check with the phantom.",
+     "ja": "ファントムで画質チェックを実施した。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "uniformity",
+     "pos": "名詞",
+     "ja": "均一性(画像の)"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "downtime",
+   "meaning_ja": "ダウンタイム(装置停止時間)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Every hour of downtime costs the hospital money.",
+     "ja": "ダウンタイムが1時間増えるたびに病院は損失を被る。",
+     "grammar": "講義"
+    },
+    {
+     "en": "We tried to minimize downtime by working at night.",
+     "ja": "夜間作業でダウンタイムを最小限に抑えようとした。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "uptime",
+     "pos": "名詞",
+     "ja": "稼働時間"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "escalate",
+   "meaning_ja": "エスカレーションする(上位サポートへ引き上げる)",
+   "pos": "動詞",
+   "examples": [
+    {
+     "en": "If you can't solve it in two hours, escalate to remote support.",
+     "ja": "2時間で解決できなければリモートサポートにエスカレーションする。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The case was escalated to the factory.",
+     "ja": "その案件は工場にエスカレーションされた。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "escalation",
+     "pos": "名詞",
+     "ja": "エスカレーション"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "firmware",
+   "meaning_ja": "ファームウェア",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "Update the firmware after replacing the board.",
+     "ja": "基板交換後にファームウェアを更新する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "The firmware version must match the software version.",
+     "ja": "ファームウェアのバージョンはソフトウェアのバージョンと一致していなければならない。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": []
+  },
+  {
+   "en": "verify",
+   "meaning_ja": "検証する、確認する",
+   "pos": "動詞",
+   "examples": [
+    {
+     "en": "Verify the fix by running a full test.",
+     "ja": "フルテストを実行して修理を検証する。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Let me verify that the interlock works.",
+     "ja": "インターロックが働くか確認させてください。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [
+    {
+     "en": "verification",
+     "pos": "名詞",
+     "ja": "検証"
+    }
+   ],
+   "idioms": []
+  },
+  {
+   "en": "rule of thumb",
+   "meaning_ja": "経験則、目安(講師がよく使う)",
+   "pos": "名詞",
+   "examples": [
+    {
+     "en": "As a rule of thumb, doubling the field doubles the SNR.",
+     "ja": "経験則として、磁場を2倍にするとSNRも2倍になる。",
+     "grammar": "講義"
+    },
+    {
+     "en": "A good rule of thumb is to check the simple things first.",
+     "ja": "簡単なところから確認するのがよい目安だ。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": [
+    {
+     "en": "as a rule of thumb",
+     "ja": "目安として、経験的に"
+    }
+   ]
+  },
+  {
+   "en": "bear in mind",
+   "meaning_ja": "心に留めておく(講師が注意を促すときの言い回し)",
+   "pos": "動詞句",
+   "examples": [
+    {
+     "en": "Bear in mind that the magnet is always on.",
+     "ja": "磁場は常にかかっていることを覚えておいてほしい。",
+     "grammar": "講義"
+    },
+    {
+     "en": "Bear in mind that this value depends on the field strength.",
+     "ja": "この値は磁場強度によって変わることを念頭に置いておくこと。",
+     "grammar": "現場"
+    }
+   ],
+   "family": [],
+   "idioms": [
+    {
+     "en": "keep in mind",
+     "ja": "心に留めておく"
+    }
+   ]
+  }
+ ]
+}
